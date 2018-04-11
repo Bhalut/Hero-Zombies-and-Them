@@ -1,70 +1,75 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Zombie : MonoBehaviour 
-{
-    public enum State {Idle, Moving}
-    public enum Taste {arm, nose, ear, finger, leg}
+{ 
+    ZombieData _zombieData;
+    int move;  
 
-  
-    public State _state; 
-    public Taste _taste;
-
-	// Use this for initialization
 	void Start () 
     {
-        _state = State.Idle;
-        _taste = Taste.arm;
+        StartCoroutine(Behaviour());
+        _zombieData._taste = (Taste)Random.Range(0, 5);
+        gameObject.GetComponent<Rigidbody>().freezeRotation = enabled;
 	}
 	
-	// Update is called once per frame
 	void Update () 
     {
-        
-	}
-
-    void ZombieBehavior(int i, int j)
-    {
-        //Moving
-        switch(i)
+        switch (move)
         {
-            case 0:
-                _state = State.Idle;
-                break;
             case 1:
-                _state = State.Moving;
-                break;
-            default:
-                _state = State.Idle;
-                break;
-        }
-
-        //Taste
-        switch(j)
-        {
-            case 0:
-                _taste = Taste.arm;
-                break;
-            case 1:
-                _taste = Taste.ear;
+                transform.position += transform.forward * 2f * Time.deltaTime;
                 break;
             case 2:
-                _taste = Taste.finger;
+                transform.position -= transform.forward * 2f * Time.deltaTime;
                 break;
             case 3:
-                _taste = Taste.leg;
+                transform.position += transform.right * 2f * Time.deltaTime;
                 break;
             case 4:
-                _taste = Taste.nose;
+                transform.position -= transform.right * 2f * Time.deltaTime;
                 break;
-            default:
-                _taste = Taste.arm;
+            case 5:
+                transform.position += new Vector3(0, 0, 0);
                 break;
         }
-    }
-    void Message()
+	}
+
+    void Movement()
     {
-        print("Waaaaarrrr quiero comer ");
+        if (_zombieData._state == global::State.Moving)
+        {
+            move = Random.Range(0, 4);
+            StartCoroutine(Behaviour());
+        }
+        else
+        {
+            move = 5;
+            StartCoroutine(Behaviour());
+        }
     }
+
+    IEnumerator Behaviour()
+    {
+        yield return new WaitForSeconds(5);
+        _zombieData._state = (State)Random.Range(0, 2);
+        Movement();
+        yield return new WaitForSeconds(5);
+    }
+
+    public ZombieData ZombieID()
+    {
+        return _zombieData;
+    }
+}
+
+public enum State { Idle, Moving }
+public enum Taste { arm, nose, ear, finger, leg }
+
+public struct ZombieData
+{
+    public State _state;
+    public Taste _taste;
+    public Color[] color;
 }

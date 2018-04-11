@@ -73,6 +73,7 @@
 -r:'/Applications/Unity/Hub/Editor/2017.3.1f1/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll'
 -r:'/Applications/Unity/Hub/Editor/2017.3.1f1/Unity.app/Contents/Managed/UnityEditor.Graphs.dll'
 -r:'/Applications/Unity/Hub/Editor/2017.3.1f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll'
+-r:'/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll'
 -r:'/Users/bhalut/Library/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll'
 -r:'/Users/bhalut/Library/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll'
 -r:'/Users/bhalut/Library/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll'
@@ -80,7 +81,6 @@
 -r:'/Users/bhalut/Library/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll'
 -r:'/Users/bhalut/Library/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll'
 -r:'/Users/bhalut/Library/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll'
--r:'/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll'
 -define:UNITY_5_3_OR_NEWER
 -define:UNITY_5_4_OR_NEWER
 -define:UNITY_5_5_OR_NEWER
@@ -180,6 +180,9 @@
 -define:UNITY_TEAM_LICENSE
 -define:ENABLE_VSTU
 'Assets/Scripts/Citizen.cs'
+'Assets/Scripts/FpsCamera.cs'
+'Assets/Scripts/FpsMove.cs'
+'Assets/Scripts/GameManager.cs'
 'Assets/Scripts/Hero.cs'
 'Assets/Scripts/Zombie.cs'
 -r:'/Applications/Unity/Hub/Editor/2017.3.1f1/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
