@@ -31,19 +31,19 @@ public class Zombie : MonoBehaviour
     {
         switch (move)
         {
-            case 1:
+            case 0:
                 transform.position += transform.forward * 3f * Time.deltaTime;
                 break;
-            case 2:
+            case 1:
                 transform.position -= transform.forward * 2f * Time.deltaTime;
                 break;
-            case 3:
+            case 2:
                 transform.position += transform.right * 3f * Time.deltaTime;
                 break;
-            case 4:
+            case 3:
                 transform.position -= transform.right * 2f * Time.deltaTime;
                 break;
-            case 5:
+            case 4:
                 transform.position += new Vector3(0, 0, 0);
                 break;
             default:
@@ -65,7 +65,7 @@ public class Zombie : MonoBehaviour
         }
         else
         {
-            move = 5;
+            move = 4;
             StartCoroutine(States());
         }
     }

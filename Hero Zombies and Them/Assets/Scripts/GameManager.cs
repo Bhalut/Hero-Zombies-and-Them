@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
                     character.AddComponent<Citizen>();
                     break;
                 case 2:                                                                //Case number 2, contains the components of the Zombie. (Like the name of the object, the color (which is randomly assigned by the Array) and the script).
-
                     character.name = "Zombie";
                     character.AddComponent<Zombie>();
                     character.GetComponent<Renderer>().material.color = _zombieData.color[Random.Range(0, 3)];
